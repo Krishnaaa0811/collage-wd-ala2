@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .container{
+            max-width: 1000px;
+            background-color: black;
+            margin: auto;
+            height: 1000px;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            display: block;
+            background-color: rgb(1, 185, 185);
+            position: relative;
+            animation: speed all var(--speed) ease;
+            transform: translateX(0px);
+            margin: 5px;
+        }
+        @keyframes speed {
+            0% {
+                transform: translateX(0px) translateY(0px);
+                background-color: orangered;
+            }
+            25%{
+                transform: translateX(100px) translateY(0px);
+                background-color: green;
+            }
+            50% {
+                transform: translateX(100px) translateY(100px);
+                background-color: yellow;
+            }
+            75%{
+                transform: translateX(0px) translateY(100px);
+                background-color: blue;
+            }
+            100% {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1" style=" --speed: 1s"></div>
+        
+
+        <div class="but">
+            <button onclick="start()">start</button>
+            <button onclick="stop()">stop</button>
+        </div>
+    </div>
+    <script>
+        function start(){
+            let box = document.getElementById('box1');
+            box.style.animation = 'speed  var(--speed) ease';;
+            
+            
+        }
+        function stop(){
+            let box = document.getElementById("box1")
+            box.style.animation = ''; // Remove animation
+        }
+    </script>
+</body>
+</html>
